@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="DrupalDeploy" default="deploy">
+
+  <!-- ============================================  -->
+  <!-- (DEFAULT)  Target: deploy                     -->
+  <!-- ============================================  -->
+  
+  <property name="drupal.workingdir" value="./Drupal" />
+  <!-- Get the full directory path -->
+  <resolvepath propertyName="drupal.workingdir.resolved" file="${drupal.workingdir}" />
+    
+  <target name="deploy" description="Deploys a copy of Drupal Core">
+    <mkdir  dir="${drupal.workingdir}" />
+    <!-- Clone drupal core -->
+    <gitclone repository="https://github.com/pawebdev/jenkins-drupal-demo.git" targetPath="${drupal.workingdir.resolved}" />
+  </target>
+
+</project>
